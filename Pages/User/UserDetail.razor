@@ -1,0 +1,21 @@
+﻿@page "/users/detail/{userId}";
+@page "/users/detail";
+
+<h3>UserDetail</h3>
+
+<EditForm Model="@User" OnValidSubmit="@Save">
+    <div class="form-group">
+        <label>Id</label>
+        <InputNumber class="form-control" @bind-Value="@User.Id"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label>FirstName</label>
+        <InputText class="form-control" @bind-Value="@User.FirstName"></InputText>
+    </div>
+    <div class="form-group">
+        <label>LastName</label>
+        <InputText class="form-control" @bind-Value="@User.LastName"></InputText>
+    </div>
+    <button class="btn btn-primary">Save</button>
+</EditForm>
+

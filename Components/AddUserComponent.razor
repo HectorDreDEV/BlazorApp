@@ -1,0 +1,35 @@
+﻿@if (CanShow)
+{
+    <div class="modal" tabindex="-1" role="dialog" style="display:block;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <EditForm Model="@User" OnValidSubmit="@AddUser">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add User</h5>
+                        <button type="button" class="close" @onclick="CloseDialog" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Id</label>
+                            <InputNumber class="form-control" @bind-Value="User.Id" />
+                        </div>
+                        <div class="form-group">
+                            <label>FirstName</label>
+                            <InputText class="form-control" @bind-Value="User.FirstName" />
+                        </div>
+                        <div class="form-group">
+                            <label>LastName</label>
+                            <InputText class="form-control" @bind-Value="User.LastName" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" @onclick="CloseDialog" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+}

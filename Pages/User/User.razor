@@ -1,0 +1,30 @@
+﻿@page "/users";
+@using  BlazorApp.Components;
+
+<h3>User</h3>
+<button @onclick="AddUser" class="btn btn-success">Add</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Users)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>
+                    <a href="@($"users/detail/{user.Id}")">Detail</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<AddUserComponent @ref="AddUserComponent" CloseEventCallback="@Reload"/>
+
